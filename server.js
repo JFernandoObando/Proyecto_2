@@ -1,32 +1,29 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
+//const hbs = require('hbs');
 
-// must specify options hash even if no options provided!
-var phpExpress = require('php-express')({
+//require('./hbs/helpers');
 
-    // assumes php is in your PATH
-    binPath: '/bin/php'
-});
-
-// set view engine to php-express
 app.use(express.static(__dirname + '/views'));
+/*
+hbs.registerPartials(__dirname + '/views/parciales');
+app.set('view engine', 'hbs');*/
 
-app.engine('php', phpExpress.engine);
-app.set('view engine', 'php');
 
+/*
 app.get('/', (req, res) => {
     res.render('index', {
-        titulo: 'Pagina | Demo',
+        titulo: 'Proyecto',
         //nombre: "eSTeBaN"
     });
 });
 
+app.get('/acercade', (req, res) => {
+    //res.send('Esta es mi primera web app');
+    res.render('acercade');
+});*/
 
-// routing all .php file to php-express
-app.all(/.+\.php$/, phpExpress.router);
 
-var server = app.listen(3000, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('PHPExpress app listening at http://%s:%s', host, port);
+app.listen(8000, () => {
+    console.log('Escuchando peticiones en el puerto 8000');
 });

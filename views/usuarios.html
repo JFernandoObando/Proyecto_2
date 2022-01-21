@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>aaaaaaaaaaaaa</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="assets/css/calendar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<!-- Librerias de highcharts-->
+<script src="assets/js/highcharts.src.js"></script>
+<script src="assets/js/data.src.js"></script>
+<script src="assets/js/exporting.src.js"></script>
+<script src="assets/js/accessibility.src.js"></script>
+<script src="assets/js/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+<body>
+    <!--
+   Inicio de navbar
+   -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#">ACSO</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tabla
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" id="plain">Plano</a></li>
+                            <li><a class="dropdown-item" id="inverted">Invertido</a></li>
+                            <li><a class="dropdown-item" id="polar">Pastel</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Exportar
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" id="botonpng">PNG</a></li>
+                            <li><a class="dropdown-item" id="botonpdf">PDF</a></li>
+                            <li><a class="dropdown-item" id="botoncsv">CSV</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex">
+                    <!--
+          Boton de Login
+          -->
+                    <a class="navbar-brand " aria-current="page">User1</a>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" onclick="location.href='index.html'" data-bs-whatever="@getbootstrap">Log out</button>
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header-center">
+                                    <div class="float-end">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Iniciar Sesion</h5>
+
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Contraseña:</label>
+                                            <input type="password" class="form-control" id="message-text">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary">Ingresar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--
+        Final de Login
+      -->
+
+
+
+        </div>
+    </nav>
+    <!--
+      Final de navbar
+  -->
+
+
+    <!--
+    Inicio de la Gráfica
+  -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <figure class="highcharts-figure">
+
+                    <div id="ad"></div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <button class="btn btn-outline-dark" id="plain2">Plano</button>
+                            <button class="btn btn-outline-dark" id="inverted2">Invertido</button>
+                            <button class="btn btn-outline-dark" id="polar2">Pastel</button>
+                        </div>
+                    </div>
+
+
+                    <!--
+          Inicio de tabla
+        -->
+                    <div id="tabla">
+                        <table class="table table-striped table-hover" id="datatable">
+                            <thead>
+
+                                <tr>
+
+
+                                    <th></th>
+                                    <th>a</th>
+                                    <th>b</th>
+                                    <th>c</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                <tr>
+                                    <th>
+
+
+
+                                        <td>
+                                            2</td>
+
+
+
+
+                                        <td>
+                                            3</td>
+
+
+                                        <td>
+                                            5</td>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+                        <!-- 
+            Final de la tabla
+          -->
+
+                </figure>
+                <!-- 
+            Botones de exportacion
+          -->
+                <div class="row">
+                    <div class="col text-center mb-3">
+                        <button class="btn btn-outline-dark" id="botonpng2">PNG</button>
+                        <button class="btn btn-outline-dark" id="botonpdf2">PDF</button>
+                        <button class="btn btn-outline-dark" id="botoncsv2">CSV</button>
+                    </div>
+                </div>
+
+                </div>
+
+                <!-- 
+         Filtracion de datos
+      -->
+                <div class="col ms-5 mt-4">
+                    <h3 class="text-center">Filtrar Datos</h3>
+
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <select class="form-select" id="cat" aria-label="Default select example" onchange="ShowSelected();">
+                            <option >Seleccione la Comunidad</option>
+                            <option >Global</option>
+                            <option >Andalucia</option>
+                            <option >Aragón</option>
+                        </select>
+
+                    </div>
+                    <br>
+                    <h4>Edad de la Madre</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="14" name="edad" id="1">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          14 años
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="15" name="edad" id="2">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          15 años
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="16" name="edad" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          16 años
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="17" name="edad" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          17 años
+                        </label>
+                    </div>
+                    <br>
+                    <h4>Edad del Padre</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Todas" name="edad" id="1">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Todas las edades
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="menos20" name="edad" id="2">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Menor a 20 años
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="20-24" name="edad" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          De 20 a 24 años
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" value="25-29" name="edad" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          De 25 a 29 años
+                        </label>
+                    </div><br>
+
+
+                    <button class="btn btn-outline-dark" onclick="capturar()">Filtrar</button>
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 
+     Librerias del calendario
+  -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</body>
+<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+<!-- 
+    Inicio de footer 
+-->
+<footer class="bg-light text-center text-dark">
+
+    <div class="container  p-1 pb-0">
+
+
+
+
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            © 2021 Copyright:
+            <a class="refe" href="#">ACSO</a>
+        </div>
+        <!-- Copyright -->
+</footer>
+<!-- 
+    Final de footer 
+-->
+
+</div>
+
+</html>
