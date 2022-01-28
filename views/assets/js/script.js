@@ -958,7 +958,7 @@ function go() {
         document.getElementById("btnIngresar").innerHTML = ++contador;
     }
 }
-console.log(chart.data);
+//console.log(chart.data);
 
 function capturar() {
     var selected = new Array();
@@ -1092,3 +1092,143 @@ function construirtabla(data) {
 function cerr() {
     window.location.href = "../index.html"
 }*/
+/*
+$(document).ready(function(){
+    $("form#changeQuote").on('submit', function(e){
+        e.preventDefault();
+        var data = $('input[name=quote]').val();
+        $.ajax({
+            type: 'get',
+            url: '/',
+            data: data,
+            dataType: 'text'
+        })
+        .done(function(data){
+            $('h1').html(data.quote);
+        });
+    });
+});
+*/
+loadDatos();
+/*
+function loadDa(todoId) {
+    //contact server
+    return $.ajax({
+        method: "get",
+        url: `/${todoId}`,
+        contentType: "application/json",
+        cache: false,
+        error: (error) => {
+            console.log("aqui");
+            console.error(error);
+        },
+    });
+}*/
+
+function loadDatos() {
+    // console.log("Holamundo");
+    ///var vjson = [{
+    //      nombre: "juan",
+    //     edad: "12"
+    //},
+    //{
+    //   nombre: "asdas",
+    //  edad: "23"
+    //}
+    //]
+    //var fd = JSON.stringify(vjson);
+    //$('#abc').append(fd);
+    /* $.ajax({
+         method: "get",
+         url: '/',
+         //res: res.json,
+         // data,
+         contentType: "application/json",
+         cache: false,
+         succes: function(json) {
+             console.log("holamundo");
+             $('#abc').text(json.title).appendTo('body');
+         },
+         error: (error) => {
+             console.error(error);
+             console.log("goool");
+         },
+
+
+     });*/
+    console.log("sssssssssfafa");
+    fetch('/hola', {
+            method: 'GET'
+                //headers: { 'Accept': 'application/json' }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("ssss");
+            const datoss = JSON.stringify(data);
+
+            var rango = '';
+            console.log("asdkajskfjskdshfkjahdflhdsajfhadfhlkhadfkhadlfhsadhfklashfkjlahdf");
+            console.log(datoss);
+            //  console.log(JSON.stringify(data));
+            // const datos = document.querySelector('#container2');
+            $('#abc').append(datoss);
+            /* for (var i = 0; i < data.length; i++) {
+                 console.log(JSON.stringify(data)[i].id);
+             }*/
+            var contenido = document.querySelector('#contenido')
+            contenido.innerHTML = '';
+            for (let valor of JSON.parse(datoss)) {
+                console.log(valor.id_padre);
+                contenido.innerHTML += `<tr>
+                    <th>${valor.id_padre}</th>
+                    <td>${valor.rango_edad}</td>
+                    <td></td>
+                    </tr>`
+            }
+
+            /*  $.each(JSON.parse(datoss), function(key, value) {
+                 rango = +'<tr>';
+                 rango = +'<td>' +
+
+                     JSON.stringify(value.id_padre) + '</td>';
+                 //  rango = +'</tr>';
+                 console.log(JSON.stringify(value.id_padre));
+                 console.log("as");
+             });*/
+            // $('#datatable').append(rango);
+            //let html = '';
+            //data.datos.forEach(datos => {
+            //  html += `<div>${datos.rango_edad}</div>`
+            //});
+            //datos.innerHTML = html;
+        });
+}
+/*
+$.ajax({
+
+    url: '/',
+
+    data,
+    type: 'GET',
+    dataType: 'json',
+
+
+    success: function(json) {
+
+        $('<div class="content"/>')
+            .html(json.html).appendTo('body');
+    },
+
+    // código a ejecutar si la petición falla;
+    // son pasados como argumentos a la función
+    // el objeto de la petición en crudo y código de estatus de la petición
+    error: function(xhr, status) {
+        alert('Disculpe, existió un problema');
+    },
+
+    // código a ejecutar sin importar si la petición falló o no
+    complete: function(xhr, status) {
+        alert('Petición realizada');
+        console.log("sssss");
+    }
+});*/
