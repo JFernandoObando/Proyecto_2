@@ -166,6 +166,8 @@ document.getElementById('calendar').addEventListener('click', () => {
 */
 // Create the chart
 
+//const { json } = require("body-parser");
+
 const chart = Highcharts.chart('ad', {
     chart: {
         type: 'column'
@@ -933,9 +935,7 @@ const chart = Highcharts.chart('ad', {
     }
 });
 
-/*var div = document.getElementById("show");
-div.innerHTML = datos.mohademago.id + " " + datos.mohademago.name;
-*/
+
 let contador = 0;
 let imagen2 = ("assets/img/dn.jpg")
 document.getElementById("bntIngresar").onclick = go;
@@ -978,257 +978,28 @@ function ShowSelected() {
     console.log(selected);
 
 }
-/*
-var newData = [{
-    "name": "Globalllllll",
-    "y": 62.74
-}, {
-    "name": "Andalucía",
-    "y": 62.74
-
-}, {
-    "name": "Aragón",
-    "y": 10.57
-
-}, {
-    "name": "Asturias, Principado de",
-    "y": 7.23
-
-}, {
-    "name": "Balears, Illes",
-    "y": 5.58
-
-}, {
-    "name": "Canarias",
-    "y": 4.02
-
-}, {
-    "name": "Cantabria",
-    "y": 1.92
-}, {
-    "name": "Castilla y León",
-    "y": 1.92
-}, {
-    "name": "Castilla-La Mancha",
-    "y": 1.92
-}, {
-    "name": "Cataluñaaaaaaa",
-    "y": 1.92
-}, {
-    "name": "Comunitat Valenciana",
-    "y": 1.92
-}, {
-    "name": "Extremadura",
-    "y": 1.92
-}, {
-    "name": "Galicia",
-    "y": 1.92
-}]
-
-$("#ab").click(function() {
-    $("#cuerpo_tabla").load('index.html', [{
-        "name": "Globalllllll",
-        "y": 62.74
-    }, {
-        "name": "Andalucía",
-        "y": 62.74
-
-    }, {
-        "name": "Aragón",
-        "y": 10.57
-
-    }, {
-        "name": "Asturias, Principado de",
-        "y": 7.23
-
-    }, {
-        "name": "Balears, Illes",
-        "y": 5.58
-
-    }, {
-        "name": "Canarias",
-        "y": 4.02
-
-    }, {
-        "name": "Cantabria",
-        "y": 1.92
-    }, {
-        "name": "Castilla y León",
-        "y": 1.92
-    }, {
-        "name": "Castilla-La Mancha",
-        "y": 1.92
-    }, {
-        "name": "Cataluñaaaaaaa",
-        "y": 1.92
-    }, {
-        "name": "Comunitat Valenciana",
-        "y": 1.92
-    }, {
-        "name": "Extremadura",
-        "y": 1.92
-    }, {
-        "name": "Galicia",
-        "y": 1.92
-    }]);
-});
-
-construirtabla(datos)
-console.log(datos);
-
-function construirtabla(data) {
-
-    var tabla = document.getElementById('cuerpo_tabla')
-    for (var i = 0; i < data.length; i++) {
-
-        var fila = `<tr>
-                        <td> ${data[i].name}</td>
-                        <td> ${data[i].y}</td>
-                    </tr>`
-        tabla.innerHTML += fila
-    }
-}
-/*
-function cerr() {
-    window.location.href = "../index.html"
-}*/
-/*
-$(document).ready(function(){
-    $("form#changeQuote").on('submit', function(e){
-        e.preventDefault();
-        var data = $('input[name=quote]').val();
-        $.ajax({
-            type: 'get',
-            url: '/',
-            data: data,
-            dataType: 'text'
-        })
-        .done(function(data){
-            $('h1').html(data.quote);
-        });
-    });
-});
-*/
-loadDatos();
-/*
-function loadDa(todoId) {
-    //contact server
-    return $.ajax({
-        method: "get",
-        url: `/${todoId}`,
-        contentType: "application/json",
-        cache: false,
-        error: (error) => {
-            console.log("aqui");
-            console.error(error);
-        },
-    });
-}*/
-
-function loadDatos() {
-    // console.log("Holamundo");
-    ///var vjson = [{
-    //      nombre: "juan",
-    //     edad: "12"
-    //},
-    //{
-    //   nombre: "asdas",
-    //  edad: "23"
-    //}
-    //]
-    //var fd = JSON.stringify(vjson);
-    //$('#abc').append(fd);
-    /* $.ajax({
-         method: "get",
-         url: '/',
-         //res: res.json,
-         // data,
-         contentType: "application/json",
-         cache: false,
-         succes: function(json) {
-             console.log("holamundo");
-             $('#abc').text(json.title).appendTo('body');
-         },
-         error: (error) => {
-             console.error(error);
-             console.log("goool");
-         },
 
 
-     });*/
-    console.log("sssssssssfafa");
-    fetch('/hola', {
-            method: 'GET'
-                //headers: { 'Accept': 'application/json' }
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("ssss");
+
+$(document).ready(function() {
+    $.ajax("/hola", {
+        success: function(data, status, xhr) {
+            //   convertJsonHtmlTable(data);
+            console.log(data);
             const datoss = JSON.stringify(data);
-
-            var rango = '';
-            console.log("asdkajskfjskdshfkjahdflhdsajfhadfhlkhadfkhadlfhsadhfklashfkjlahdf");
-            console.log(datoss);
-            //  console.log(JSON.stringify(data));
-            // const datos = document.querySelector('#container2');
-            $('#abc').append(datoss);
-            /* for (var i = 0; i < data.length; i++) {
-                 console.log(JSON.stringify(data)[i].id);
-             }*/
+            //const datoq = JSON.parse(datoss);
+            console.log("sdfsd");
+            //console.log(datoss.rango_edad);
             var contenido = document.querySelector('#contenido')
             contenido.innerHTML = '';
             for (let valor of JSON.parse(datoss)) {
                 console.log(valor.id_padre);
                 contenido.innerHTML += `<tr>
-                    <th>${valor.id_padre}</th>
-                    <td>${valor.rango_edad}</td>
-                    <td></td>
-                    </tr>`
+                       <th>${valor.id_padre}</th>
+                       <td>${valor.rango_edad}</td>
+                       <td></td>
+                       </tr>`
             }
-
-            /*  $.each(JSON.parse(datoss), function(key, value) {
-                 rango = +'<tr>';
-                 rango = +'<td>' +
-
-                     JSON.stringify(value.id_padre) + '</td>';
-                 //  rango = +'</tr>';
-                 console.log(JSON.stringify(value.id_padre));
-                 console.log("as");
-             });*/
-            // $('#datatable').append(rango);
-            //let html = '';
-            //data.datos.forEach(datos => {
-            //  html += `<div>${datos.rango_edad}</div>`
-            //});
-            //datos.innerHTML = html;
-        });
-}
-/*
-$.ajax({
-
-    url: '/',
-
-    data,
-    type: 'GET',
-    dataType: 'json',
-
-
-    success: function(json) {
-
-        $('<div class="content"/>')
-            .html(json.html).appendTo('body');
-    },
-
-    // código a ejecutar si la petición falla;
-    // son pasados como argumentos a la función
-    // el objeto de la petición en crudo y código de estatus de la petición
-    error: function(xhr, status) {
-        alert('Disculpe, existió un problema');
-    },
-
-    // código a ejecutar sin importar si la petición falló o no
-    complete: function(xhr, status) {
-        alert('Petición realizada');
-        console.log("sssss");
-    }
-});*/
+        }
+    });
+});
