@@ -34,7 +34,9 @@ $('#enviar').click(function() {
     })
 })*/
 
+
 /*
+
 var nombre = $('form').serialize();
 var namea = $('#nombre').val();
 var formulario = document.getElementById('formulario');
@@ -47,20 +49,21 @@ formulario.addEventListener('submit', function(e) {
 
     /*  $.post({
 
+
           })
-          
-    $.ajax({
-        url: "/form",
-        method: "POST",
-        // contentType: "application/json",
-        data: $('#formulario').serialize(),
-        //  data: nombre,
-        success: function(data) {
-            console.log("ssee envio");
-            console.log(data);
-        }
-    })
-})*/
+    })*/
+
+$.ajax({
+    url: "/form",
+    method: "POST",
+    // contentType: "application/json",
+    data: $('#formulario').serialize(),
+    //  data: nombre,
+    success: function(data) {
+        console.log("ssee envio");
+        console.log(data);
+    }
+})
 
 $(document).ready(function() {
     $("#enviar").click(function(e) {

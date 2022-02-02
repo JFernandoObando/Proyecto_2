@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 */
 app.use(todoRoutes);
 
-const PORT = process.env.PORT || 7002;
+const PORT = process.env.PORT || 7006;
 
 app.listen(PORT, () => {
     console.log(`Escuchando peticiones en el puerto${PORT}`);

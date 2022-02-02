@@ -22,6 +22,7 @@ router.get("/hola", (req, res) => {
 
 router.post('/form', urlencodedParser, (req, res) => {
     console.log("asfdasfdfsdfsdfdsf");
+
     //const nombre = req.data.nombre;
     const { nombre_completo, usuario, password } = req.body;
     pool.query('INSERT INTO usuarios (nombre_completo,usuario,password) VALUES ($1,$2,$3)', [nombre_completo, usuario, password], (error, results) => {
@@ -35,6 +36,10 @@ router.post('/form', urlencodedParser, (req, res) => {
         usuario,
         password
     });
+
+    const { nombre } = req.body;
+    console.log(nombre);
+
     /*  const { nombre_completo, nombre_usuario, contraseña } = req.body;
 
       pool.query("insert into usuarios (nombre_completo,nombre_usuario,contraseña) values ($1,$2,$3)", [nombre_completo, nombre_usuario, contraseña],

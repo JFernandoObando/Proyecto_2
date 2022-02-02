@@ -105,3 +105,88 @@ $(document).ready(function() {
 
 
 })
+
+
+
+
+
+/*  $.ajax({
+      url: '/form',
+      type: 'post',
+      // dataType: 'json',
+      body: { viewID: $("#nombre").val() },
+      success: function(body) {
+          try {
+              console.log("hola mundo");
+              var output = JSON.parse(data);
+              alert(output);
+          } catch (e) {
+              alert("Output is not valid JSON: " + data);
+          }
+      },
+      error: function(request, error) {
+          alert("AJAX Call Error: " + error);
+      }
+  });*/
+
+
+/*
+    let formulario = document.getElementById('idformulario');
+    formulario.addEventListener('submit', e => {
+        e.preventDefault();
+        let datos = new FormData(formulario);
+        $.ajax({
+
+            type: 'POST',
+            // dataType: 'json',
+            body: datos,
+            success: function(body) {
+                try {
+                    var output = JSON.parse(data);
+                    alert(output);
+                } catch (e) {
+                    alert("Output is not valid JSON: " + data);
+                }
+            },
+            error: function(request, error) {
+                alert("AJAX Call Error: " + error);
+            }
+        })
+    });
+*/
+
+/*
+    var frm = $("#idformulario"); //Identificamos el formulario por su id
+    var datos = frm.serialize();
+    /* var request = $.ajax({
+              type: "POST", // la variable type guarda el tipo de la peticion GET,POST,..
+              url: "/", //url guarda la ruta hacia donde se hace la peticion
+              data: datos, // data recive un objeto con la informacion que se enviara al servidor
+              //success: function(datos) { //success es una funcion que se utiliza si el servidor retorna informacion
+              //   console.log(datos.)
+              // },
+              dataType: "json" // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+          })*/
+/* var request = $.ajax({
+     url: frm.prop("action"), //Leerá la url en la etiqueta action del formulario (archivo.php)
+     method: frm.prop('method'), //Leerá el método en etiqueta method del formulario
+     data: datos, //Variable serializada más arriba 
+     //puede ser de otro tipo
+ });
+ /*request.done(function(respuesta) {
+     console.log(respuesta);
+     console.log("sfdasfds");
+     console.log(respuesta.foo); //foo es una propiedad (clave), del json que devuelve el servidor
+     //Tratamos a respuesta según sea el tipo  y la estructura               
+ });*/
+/* request.done(function(respuesta) {
+     console.log("aqui");
+     // console.log(respuesta);
+     console.log(respuesta.foo); //foo es una propiedad (clave), del json que devuelve el servidor
+     //Tratamos a respuesta según sea el tipo  y la estructura               
+ });
+
+ //Este bloque se ejecuta si hay un error
+ request.fail(function(jqXHR, textStatus) {
+     alert("Hubo un error: " + textStatus);
+ });*/
