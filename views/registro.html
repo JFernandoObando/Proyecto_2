@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>aaaaaaaaaaaaa</title>
+    <title>Proyecto</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/estilos.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -13,28 +13,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-
 <body>
-    <!--
-   Inicio de navbar
-   -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">ACSO</a>
+                <a class="navbar-brand" href="index.html">ACSO</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tabla
-            
           </a>
-
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" id="plain">Plano</a></li>
                             <li><a class="dropdown-item" id="inverted">Invertido</a></li>
@@ -45,6 +40,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Exportar
           </a>
+                        <p> </p>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" id="botonpng">PNG</a></li>
                             <li><a class="dropdown-item" id="botonpdf">PDF</a></li>
@@ -52,79 +48,48 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">  Lista de Usuarios
-                        </a>
-
-
-                    </li>
-
                 </ul>
-
-                <form class="d-flex">
-                    <!--
-          Boton de Login
-          -->
-                    <a class="navbar-brand">Admin1</a>
-                    <button type="button" id="btnCerrar" onclick="window.location.href='index.html'" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Cerrar Sesion</button>
-
-
-
-
-
-
-            </div>
     </nav>
-    <!--
-      Final de navbar
-  -->
-    <div class="container text-center">
-        <h1>Lista de usuarios</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Rol</th>
-                </tr>
-            </thead>
-            <tbody id="cuerpotabla">
+    <form class="d-flex" id="formulario">
+
+        <div class="container">
+            <h5 class="modal-title text-center" id="exampleModalLabel">Registrar un nuevo Usuario</h5>
 
 
-            </tbody>
-        </table>
-    </div>
+            <div class="modal-body">
+                <form class="add-todo-form" id="formul" action="/form">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Nombre Completo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="usuario" name="nick">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="cont" name="contraseña">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Repetir Contraseña:</label>
+                        <input type="password" class="form-control" id="cont2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Aceptar terminos y condiciones
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="enviar" type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </div>
 
+
+    </form>
+    <script type="text/javascript" src="assets/js/script2.js"></script>
 
 </body>
-<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
-
-
-
-<script type="text/javascript" src="assets/js/lista.js"></script>
-
-<!-- 
-    Inicio de footer 
--->
-<footer class="bg-light text-center text-dark">
-
-    <div class="container  p-1 pb-0">
-
-
-
-
-        <!-- Copyright -->
-        <div class="text-center p-3">
-            © 2021 Copyright:
-            <a class="refe" href="#">ACSO</a>
-        </div>
-        <!-- Copyright -->
-</footer>
-<!-- 
-    Final de footer 
--->
-
-</div>
-
-</html>
