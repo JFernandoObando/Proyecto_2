@@ -8,6 +8,7 @@ const { response } = require("express");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+
 router.get("/filtrado0", (req, res) => {
     pool.query(
         'Select nombre_comunidad,sum(nacimientos) as numero_nacimientos from fact_nacimientos, dim_comunidad where fact_nacimientos.sk_comunidad = 1 AND fact_nacimientos.sk_comunidad = dim_comunidad.sk_comunidad GROUP BY nombre_comunidad',
@@ -285,6 +286,16 @@ router.get("/lista", (req, res) => {
                 res.send(filas.rows)
             }
         });
+
+router.get("/hola", (req, res) => {
+    pool.query('Select * from dim_comunidad where sk_comunidad = 1', function(err, filas) {
+        if (err) throw err;
+        else {
+            res.setHeader('Content-type', 'text/json');
+            res.send(filas.rows)
+        }
+    });
+
 });
 
 
@@ -306,16 +317,9 @@ router.post('/form', urlencodedParser, (req, res) => {
     });
 
 
-    /*  const { nombre_completo, nombre_usuario, contraseña } = req.body;
-
-      pool.query("insert into usuarios (nombre_completo,nombre_usuario,contraseña) values ($1,$2,$3)", [nombre_completo, nombre_usuario, contraseña],
-          (err, res_) => {
-              if (err) {
-                  throw err;
-              }
-              res.sendStatus(201);
-          });*/
+    
 });
+
 
 router.post('/actualizar', urlencodedParser, (req, res) => {
     console.log("asfdasfdfsdfsdfdsf");
@@ -372,30 +376,7 @@ router.post('/cambio_estado', urlencodedParser, (req, res) => {
 });
 
 
-/*  let body = req.body;
-
-  let usuario = new Usuario({
-      nombre: body.nombre,
-      email: body.email,
-      password: bcrypt.hashSync(body.password, 10),
-      tole: body.roles
-  });
-
-  pool.query('insert into')
-  usuario.save((err, usuarioDB) => {
-      if (err) {
-          return res.status(400).json({
-              ok: false,
-              err
-          });
-      }
-      usuarioDB.password = null;
-      res.json({
-          ok: true,
-          usuario: usuarioDB
-      });
-  });*/
-//});
+});
 
 
 module.exports = router;

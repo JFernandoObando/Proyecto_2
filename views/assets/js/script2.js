@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $("#enviar").click(function(e) {
         e.preventDefault();
@@ -10,8 +11,12 @@ $(document).ready(function() {
                 password: pass
             },
             function(data, status) {
+
                 alert("Registrado Correctamente");
                 document.getElementById("enviar").onclick = window.location.href = "index.html";
+
+                alert("Data: " + data + "\nStatus" + status + "\nEnvio correcto");
+
             })
     })
 })

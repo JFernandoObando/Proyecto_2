@@ -2,7 +2,7 @@ let contador = 0;
 let imagen2 = ("assets/img/dn.jpg")
 document.getElementById("bntIngresar").onclick = go;
 
-//document.getElementById("bntCerrar").onclick = cerr;
+
 
 function go() {
     if (document.getElementById("pass").value == 'admin123' && document.getElementById("nomb").value == 'Admin1') {
@@ -21,7 +21,7 @@ function go() {
         document.getElementById("btnIngresar").innerHTML = ++contador;
     }
 }
-//console.log(chart.data);
+
 
 function capturar() {
     var selected = new Array();
@@ -39,6 +39,7 @@ function ShowSelected() {
     var combo = document.getElementById("cat");
     var selected = combo.options[combo.selectedIndex].value;
     console.log(selected);
+
 
 
 
@@ -153,3 +154,71 @@ function grafico_pie() {
         }
     });
 }
+
+
+
+
+
+
+$.ajax("/hola", {
+    success: function(data, status, xhr) {
+        //   convertJsonHtmlTable(data);
+        console.log(data);
+        const datoss = JSON.stringify(data);
+        //const datoq = JSON.parse(datoss);
+        console.log("sdfsd");
+        //console.log(datoss.rango_edad);
+        var contenido = document.querySelector('#contenido')
+
+        contenido.innerHTML = '';
+        for (let valor of JSON.parse(datoss)) {
+            //   console.log(data.pk_comunidad);
+            contenido.innerHTML += `<tr>
+                       <th>${valor.nombre_comunidad}</th>
+                       <td>${valor.pk_comunidad}</td>
+                       <td>${valor.pk_comunidad}</td>
+                       </tr>`
+        }
+
+        console.log("hola como estas");
+        Highcharts.chart('ad', {
+
+            data: {
+                table: 'datatable',
+                decimalPoint: ','
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Data extracted from a HTML table in the page'
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Units'
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<br>' + this.series.name + '</b><br/>' +
+                        this.point.y + ' ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+
+
+    }
+});
+
+
+
+
+
+
+$(document).ready(function() {
+
+
+
+})
+
