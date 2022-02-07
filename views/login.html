@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<!--
+    Boton de Login
+   
+                    -->
+
+<body>
+
+    <!--
+Boton de Login
+-->
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="index.html">ACSO</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+
+    </nav>
+
+    <div class="container">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Iniciar Sesion</h5>
+        <form action="/login">
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Usuario" id="nomb">
+            </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="contraseña" placeholder="pass" id="pass">
+
+            </div>
+
+        </form>
+        <div id="incorrecto"></div>
+
+
+
+        <div class="modal-footer">
+            <button type="button" onclick="location.href='index.html'" id="cancelar2" class="btn btn-secondary">Cancelar</button>
+            <button id="Ingresar" type="button" class="btn btn-primary">Ingresar</button>
+        </div>
+    </div>
+
+
+</body>
+
+
+<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="assets/js/login.js"></script>

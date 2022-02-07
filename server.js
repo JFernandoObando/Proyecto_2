@@ -1,32 +1,26 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const pool = require("./db.js");
 
-// must specify options hash even if no options provided!
-var phpExpress = require('php-express')({
+const hbs = require('hbs');
+const html = require('html');
+//const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
+const bodyParser = require('body-parser');
+const path = require('path');
+const fs = require('fs');
+const cors = require("cors");
+const app = express();
+const todoRoutes = require('./server/routes/usuario');
 
-    // assumes php is in your PATH
-    binPath: '/bin/php'
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// set view engine to php-express
 app.use(express.static(__dirname + '/views'));
 
-app.engine('php', phpExpress.engine);
-app.set('view engine', 'php');
+app.use(todoRoutes);
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        titulo: 'Pagina | Demo',
-        //nombre: "eSTeBaN"
-    });
-});
+const PORT = process.env.PORT || 7013;
 
-
-// routing all .php file to php-express
-app.all(/.+\.php$/, phpExpress.router);
-
-var server = app.listen(3000, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('PHPExpress app listening at http://%s:%s', host, port);
+app.listen(PORT, () => {
+    console.log(`Escuchando peticiones en el puerto${PORT}`);
 });
